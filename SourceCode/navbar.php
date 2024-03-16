@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="navbar.css"/>
 </head>
 <body>
+    <div class="container-fluid">
+            <div class="row justify-content-end time-now">
+                <div class="col-md-6">
+                    <div id="clock"></div>
+                    <a id="sign_in" href="fzManage/index.php"><i class="fas fa-sign-in-alt"></i> Sign in</a>
+                </div>
+            </div>
+    </div>
+    
     <nav class="navbar navbar-expand-lg navbar-light border-bottom border-danger ">
         <a class="navbar-brand" href="#"><img src="./image/logo.jpg " alt="Logo"></a> 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
