@@ -57,9 +57,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Register</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" rel="stylesheet">
-    <link rel="stylesheet" href="navbar.css" />
-    <link rel="stylesheet" href="footer.css" />
-    <link rel="stylesheet" href="register.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/register.css" />
 </head>
 
 <body>
@@ -108,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <?php endif ?>
                                 </div>
 
-                                <button type="submit" class="btn btn-success">Register Here</button> <br>
+                                <button type="submit" class="btn btn-success" style="margin-top: 10px;">Register Here</button> <br>
                                 <hr>
                                 <span>Already have an account? <a href="#">Log in here</a></span>
                             </form>
