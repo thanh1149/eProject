@@ -61,7 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/register.css" />
 </head>
-
 <body>
     <?php include('navbar.php'); ?>
     <!-- register form -->

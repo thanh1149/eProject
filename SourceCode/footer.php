@@ -2,7 +2,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <a class="navbar-brand" href="#"><img src="./image/logo.jpg " alt="Logo"></a> 
+                    <a class="navbar-brand" href="home.php"><img src="./image/logo.jpg " alt="Logo"></a> 
                 </div>
                 <div class="col-md-4">
                     <h5>Thông tin liên hệ</h5>

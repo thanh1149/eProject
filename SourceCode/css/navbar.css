@@ -1,4 +1,9 @@
 .navbar-brand img {
-    max-width: 150px;
+    max-width: 100px;
     height: auto;
 }
+.header
+    {
+        display: flex;
+        justify-content: flex-end;
+    }
