@@ -1,52 +1,40 @@
 <?php
 require_once 'function.php';
 init_connection();
+$message ='';
 
-$data =
-    [
-        "name" => addslashes(htmlspecialchars(postInput("name"))),
-        "email" => addslashes(htmlspecialchars(postInput("email"))),
-        "phone" => addslashes(htmlspecialchars(postInput("phone"))),
-        "password" => addslashes(htmlspecialchars(password_hash(postInput("password"), PASSWORD_DEFAULT))),
-        "address" => addslashes(htmlspecialchars(postInput("address")))
-    ];
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $password = $_POST["password"];
+    
+    $check_query = "SELECT * FROM user WHERE `name` = ?";
+    $check_stmt = $conn->prepare($check_query);
+    $check_stmt->bind_param("s", $name);
+    $check_stmt->execute();
+    $result = $check_stmt->get_result();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    //Bắt lỗi để trống
-    $error = [];
-    if (postInput('name') == '') {
-        $error['name'] = "Vui lòng nhập họ và tên";
-    }
-    if (postInput('email') == '') {
-        $error['email'] = "Vui lòng nhập email";
-    } else {
-        $is_check = $db->fetchOne("user", "email = '" . $data['email'] . "' ");
-        if ($is_check != NULL) {
-            $error['email'] = "Email đã tồn tại !";
-        }
-    }
-    if (postInput('phone') == '') {
-        $error['phone'] = "Vui lòng nhập số điện thoại";
-    }
-    if (postInput('password') == '') {
-        $error['password'] = "Vui lòng nhập mật khẩu";
-    }
-    if (postInput('address') == '') {
-        $error['address'] = "Vui lòng nhập địa chỉ";
-    }
-
-    //Khi input không trống
-    if (empty($error)) {
-        $id_insert = $db->insert("user", $data);
-        if ($id_insert) {
-            $_SESSION['success'] = "Đăng ký thành công,mời bạn đăng nhập ";
-            header("Location:login.php");
-        } else {    
-            $_SESSION['success'] = "Đăng ký thất bại";
-        }
+    if($result->num_rows>0){
+        echo "Username exist";
+    }else{
+        $sql = "INSERT INTO user (`name`, email, phone,`password`) VALUES (?,?,?,?)";
+        $stmt = mysqli_prepare($conn,$sql);
+        // if (!$stmt) {
+        //     die("Error: " . mysqli_error($conn));
+        // }
+        $stmt->bind_param('ssss',$name, $email, $phone,$password);
+        $stmt->execute();
+        ?>
+        <script>
+            alert("Đăng ký thành công!");
+            setTimeout(function() {
+                window.location.href = "login.php";
+            }, 1000);
+        </script>
+        <?php
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                 <button type="submit" class="btn btn-success" style="margin-top: 10px;">Register Here</button> <br>
                                 <hr>
-                                <span>Already have an account? <a href="#">Log in here</a></span>
+                                <span>Already have an account? <a href="login.php">Log in here</a></span>
                             </form>
                         </div>
                     </div>

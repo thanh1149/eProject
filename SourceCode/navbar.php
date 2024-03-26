@@ -6,13 +6,13 @@
                     </div>
         </div>
         <div class="col-md-4 col-12">
-                <div class="header"  style="padding-top: 20px;padding-bottom: 20px">
+                <div class="header">
                     <div class="hotnum">
                         <span class="hotline">HotLine:</span>
-                        <span class="numberphone">1800 1141</span>
+                        <span class="numberphone">0934583480</span>
                         <br>
                         <span class="hotline">Email:</span>
-                        <span class="numberphone">aptech1@aprotrain.com</span>
+                        <span class="numberphone">nnnthanh1149@gmail.com</span>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-left">
                 <li class="nav-item ">
                     <a class="nav-link" href="home.php">HOME</a>
                 </li>
@@ -53,20 +53,12 @@
                         <li><a class="dropdown-item" href="#">GALLERY</a></li>
                     </ul>
                 </li>
-                
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="register.php">LOGIN/REGISTER</a>
-                </li> -->
             </ul>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-right">
                 <li class="nav-item">
-                        <a class="nav-link" href="register.php">LOGIN/REGISTER</a>
+                        <a class="nav-link" href="register.php">BUY TICKET</a>
                 </li>
             </ul>
-            <!-- <form class="d-flex ms-auto" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-            </form> -->
         </div>
     </div>
 </nav>

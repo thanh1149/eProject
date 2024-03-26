@@ -1,6 +1,6 @@
 /* navbar  */
 .navbar-brand img {
-    max-width: 100px;
+    max-width: 130px;
     height: auto;
 }
 .header
@@ -8,15 +8,25 @@
         display: flex;
         justify-content: flex-end;
     }
-
 .navbar-nav {
     display: flex;
     align-items: center; 
 }
-
-
 .navbar-nav > *:not(form) {
     margin-right: 10px; 
+}
+.img-logo{
+    margin-left: 80px;
+}
+.header{
+    padding-top: 40px;
+    padding-right: 40px;
+}
+.navbar-left{
+    padding-left: 50px;
+}
+.navbar-right{
+    padding-right: 40px;
 }
 
 /* footer  */
