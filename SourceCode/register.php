@@ -57,14 +57,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Register</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" rel="stylesheet">
-    <link rel="stylesheet" href="css/navbar.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/register.css" />
+    <link rel="stylesheet" href="css/fe-style.css" />
 </head>
 <body>
     <?php include('navbar.php'); ?>
     <!-- register form -->
-    <div class="container-fluid product-main" id="product">
+    <div class="container-fluid product-main register-form bg-body-tertiary" id="product">
         <div class="container">
             <div class="con-title " style="padding-top: 20px">
                 USER REGISTER

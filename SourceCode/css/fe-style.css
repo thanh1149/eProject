@@ -1,0 +1,43 @@
+/* navbar  */
+.navbar-brand img {
+    max-width: 100px;
+    height: auto;
+}
+.header
+    {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+.navbar-nav {
+    display: flex;
+    align-items: center; 
+}
+
+
+.navbar-nav > *:not(form) {
+    margin-right: 10px; 
+}
+
+/* footer  */
+.img-fluid{
+    max-width: 150px;
+    height: auto;
+}
+
+.footer{
+    padding-top: 50px;
+}
+
+/* register form */
+.register-form{
+    padding-bottom: 30px;
+}
+
+.item-login form .form-group {
+    margin-bottom: 15px; 
+}
+
+.item-login form .btn {
+    margin-top: 15px; 
+}

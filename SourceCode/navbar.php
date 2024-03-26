@@ -4,28 +4,28 @@
                     <div class="img-logo">   
                     <a class="navbar-brand" href="#"><img src="./image/logo.jpg " alt="Logo"></a>
                     </div>
-            </div>
+        </div>
         <div class="col-md-4 col-12">
-            <div class="header" style="padding-top: 20px;padding-bottom: 20px">
-                <div class="hotnum">
-                    <span class="hotline">HotLine:</span>
-                    <span class="numberphone">1800 1141</span>
-                    <br>
-                    <span class="hotline">Email:</span>
-                    <span class="numberphone">aptech1@aprotrain.com</span>
+                <div class="header"  style="padding-top: 20px;padding-bottom: 20px">
+                    <div class="hotnum">
+                        <span class="hotline">HotLine:</span>
+                        <span class="numberphone">1800 1141</span>
+                        <br>
+                        <span class="hotline">Email:</span>
+                        <span class="numberphone">aptech1@aprotrain.com</span>
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
 </div>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-danger-subtle text-danger-emphasis">
     <div class="container-fluid">
         <!-- <a class="navbar-brand" href="#"><img src="./image/logo.jpg " alt="Logo"></a> -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                 <li class="nav-item ">
                     <a class="nav-link" href="home.php">HOME</a>
                 </li>
@@ -53,10 +53,20 @@
                         <li><a class="dropdown-item" href="#">GALLERY</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="register.php">LOGIN/REGISTER</a>
+                </li> -->
+            </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                <li class="nav-item">
+                        <a class="nav-link" href="register.php">LOGIN/REGISTER</a>
                 </li>
             </ul>
+            <!-- <form class="d-flex ms-auto" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
         </div>
     </div>
 </nav>
