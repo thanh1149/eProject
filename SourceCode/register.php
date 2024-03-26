@@ -8,15 +8,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $email = $_POST["email"];
     $phone = $_POST["phone"];
     $password = $_POST["password"];
-    
     $check_query = "SELECT * FROM user WHERE `name` = ?";
     $check_stmt = $conn->prepare($check_query);
     $check_stmt->bind_param("s", $name);
     $check_stmt->execute();
     $result = $check_stmt->get_result();
-
     if($result->num_rows>0){
-        echo "Username exist";
+        ?>
+        <script>
+            alert("USERNAME ALREADY EXIST!");
+        </script>
+        <?php
     }else{
         $sql = "INSERT INTO user (`name`, email, phone,`password`) VALUES (?,?,?,?)";
         $stmt = mysqli_prepare($conn,$sql);
@@ -63,7 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <form method="POST">
                                 <div class="form-group">
                                     <label for="">Name:</label>
-                                    <input type="text" class="form-control" placeholder="Nguyen Ngoc Thanh" name="name" required>
+                                    <input type="text" class="form-control" placeholder="Your username" name="name" required>
                                     <?php if (isset($error['name'])) : ?>
                                         <p class="text-danger"><?php echo ($error['name']); ?></p>
                                     <?php endif ?>
@@ -79,7 +81,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                                 <div class="form-group">
                                     <label for="">Phone number:</label>
-                                    <input type="number" class="form-control" placeholder="0123454563" name="phone" required>
+                                    <input type="number" class="form-control" placeholder="Your phone number" name="phone" required>
                                     <?php if (isset($error['phone'])) : ?>
                                         <p class="text-danger"><?php echo ($error['phone']); ?></p>
                                     <?php endif ?>

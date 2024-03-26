@@ -1,22 +1,22 @@
-<footer class="footer mt-auto py-3  ">
+<footer class="footer mt-auto py-3 bg-danger-subtle text-danger-emphasis">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 footer-left">
                     <a class="navbar-brand" href="home.php"><img src="./image/logo.jpg " alt="Logo"></a> 
                 </div>
-                <div class="col-md-4">
-                    <h5>Thông tin liên hệ</h5>
-                    <p>Địa chỉ: 123 Đường ABC, Thành phố XYZ</p>
-                    <p>Email: example@example.com</p>
-                    <p>Điện thoại: 0123 456 789</p>
+                <div class="col-md-4 footer-mid">
+                    <h5>CONTACT INFORMATION</h5>
+                    <p>Address: 285 P. Đội Cấn, Liễu Giai, Ba Đình, Hà Nội</p>
+                    <p>Email: nnnthanh@gmail.com</p>
+                    <p>Phone: 0934583588</p>
                 </div>
-                <div class="col-md-4">
-                    <h5>Các mục</h5>
+                <div class="col-md-4 footer-right">
+                    <h5>Category</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">Trang chủ</a></li>
-                        <li><a href="#">Giới thiệu</a></li>
-                        <li><a href="#">Trợ giúp</a></li>
-                        <!-- Thêm các mục khác vào đây -->
+                        <li><a href="home.php">Home</a></li>
+                        <li><a href="about-us.php">About Us</a></li>
+                        <li><a href="contact-us">Contact Us</a></li>
+                        <li><a href="faq.php">FAQ</a></li>
                     </ul>
                 </div>
             </div>

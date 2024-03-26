@@ -34,11 +34,19 @@
     max-width: 150px;
     height: auto;
 }
-
 .footer{
-    padding-top: 50px;
+    padding-top: 60px;
 }
-
+.footer-right{
+    padding-top: 15px;
+    padding-left: 100px;
+}
+.footer-left{
+    padding-top: 15px;
+}
+.footer-mid{
+    padding-top: 15px;
+}
 /* register form */
 .register-form{
     padding-bottom: 30px;
