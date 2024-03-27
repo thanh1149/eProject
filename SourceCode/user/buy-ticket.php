@@ -1,3 +1,9 @@
+<?php
+require_once __DIR__ . "/../function.php";
+init_connection();
+// check_login();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -24,7 +24,7 @@
         $logged = $_SESSION['logged'] ?? false;
     
         if (!$logged) {
-            header("Location: ../login.php");
+            header("Location: login.php");
             exit();
         }	
     }

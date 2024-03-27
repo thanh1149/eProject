@@ -47,6 +47,11 @@
 .footer-mid{
     padding-top: 20px;
 }
+.footer-right a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
 /* register form */
 .register-form{
     padding-bottom: 30px;
@@ -58,4 +63,24 @@
 
 .item-login form .btn {
     margin-top: 15px; 
+}
+
+/* breadcrumb */
+.breadcrumb-item a {
+    text-decoration: none;
+    color: inherit; 
+}
+.breadcrumb{
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+/* faq css */
+.faq-pic{
+    padding-right: 250px;
+    margin-bottom: 20px;
+}
+.faq-pic img{
+    height: 300px;
+    width: 150%;
 }
