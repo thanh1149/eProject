@@ -8,7 +8,7 @@
                     <h5>CONTACT INFORMATION</h5>
                     <p>Address: 285 P. Đội Cấn, Liễu Giai, Ba Đình, Hà Nội</p>
                     <p>Email: nnnthanh@gmail.com</p>
-                    <p>Phone: 0934583588</p>
+                    <p>Phone: 093 4583 588</p>
                 </div>
                 <div class="col-md-4 footer-right">
                     <h5>Category</h5>

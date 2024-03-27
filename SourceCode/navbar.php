@@ -9,7 +9,7 @@
                 <div class="header">
                     <div class="hotnum">
                         <span class="hotline">HotLine:</span>
-                        <span class="numberphone">0934583480</span>
+                        <span class="numberphone">093 4583 480</span>
                         <br>
                         <span class="hotline">Email:</span>
                         <span class="numberphone">nnnthanh1149@gmail.com</span>
@@ -18,7 +18,7 @@
             </div>
     </div>
 </div>
-<nav class="navbar navbar-expand-lg bg-danger-subtle text-danger-emphasis">
+<nav class="navbar sticky-top navbar-expand-lg bg-danger-subtle text-danger-emphasis">
     <div class="container-fluid">
         <!-- <a class="navbar-brand" href="#"><img src="./image/logo.jpg " alt="Logo"></a> -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,7 +56,7 @@
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-right">
                 <li class="nav-item">
-                        <a class="nav-link" href="register.php">BUY TICKET</a>
+                        <a class="nav-link" href="register.php" target="blank">BUY TICKET</a>
                 </li>
             </ul>
         </div>

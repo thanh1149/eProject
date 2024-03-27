@@ -1,22 +1,30 @@
 <?php
 require_once 'function.php';
 init_connection();
+generateRandomPassword();
+$GLOBALS['message'] = '';
+
+function resetPassword($name, $phone, $conn) {
+    $sql = "SELECT * FROM user WHERE `name` ='$name' AND phone ='$phone'";
+    $result = $conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+        $new_password = generateRandomPassword();
+        $update_sql = "UPDATE user SET `password` ='$new_password' WHERE `name` ='$name'";
+        if ($conn->query($update_sql) === TRUE) {
+            $GLOBALS['message'] = "Your new password is " . $new_password  . ". Please save this password so you can change password after!!!";
+        }else{
+            echo " Loi khi cap nhat mat khau" .$conn->error;
+        }
+    }else {
+        $GLOBALS['message'] = "No user or phone number found.";
+    }
+}
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $name = $_POST["name"];
-    $password = $_POST["password"];
-    $check_query = "SELECT * FROM user WHERE `name` = ? AND `password`=?";
-    $check_stmt = $conn->prepare($check_query);
-    $check_stmt->bind_param("ss", $name,$password);
-    $check_stmt->execute();
-    $result = $check_stmt->get_result();
-    if($result->num_rows>0){
-        echo '<script>alert("Login succesfull!");</script>';
-        echo '<script>window.location.href = "buy-ticket.php";</script>';
-        exit;
-    }else{
-        echo '<script>alert("Wrong username or password!");</script>';
-    }
+    $phone = $_POST["phone"];
+    resetPassword($name, $phone, $conn);
 }
 ?>
 <!DOCTYPE html>
@@ -24,18 +32,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Reset Password</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" rel="stylesheet">
     <link rel="stylesheet" href="css/fe-style.css" />
 </head>
 <body>
     <?php include('navbar.php'); ?>
-    <!-- login form -->
+    <!-- Reset password form -->
+    <?php
+        if ($GLOBALS['message']){
+            echo $GLOBALS['message'] ;
+        }
+    ?>
     <div class="container-fluid product-main register-form bg-body-tertiary" id="product">
         <div class="container">
             <div class="con-title " style="padding-top: 20px">
-                USER LOGIN
+                RESET PASSWORD
                 <div class="con-title-i"></div>
             </div>
             <div class="cart-main">
@@ -52,17 +65,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="">Password:</label>
-                                    <input type="password" class="form-control" placeholder="*******" name="password" required>
-                                    <?php if (isset($error['password'])) : ?>
-                                        <p class="text-danger"><?php echo ($error['password']); ?></p>
+                                    <label for="">Phone number:</label>
+                                    <input type="number" class="form-control" placeholder="Your phone number" name="phone" required>
+                                    <?php if (isset($error['phone'])) : ?>
+                                        <p class="text-danger"><?php echo ($error['phone']); ?></p>
                                     <?php endif ?>
                                 </div>
 
-                                <button type="submit" class="btn btn-success" style="margin-top: 10px;">Login Here</button> <br>
+                                <button type="submit" class="btn btn-success" style="margin-top: 10px;">Reset Here</button> <br>
                                 <hr>
+                                <span>Already have an account? <a href="login.php">Login here</a></span><br><br>
                                 <span> Don't have an account? <a href="register.php">Register here</a></span><br><br>
-                                <span>Forget your password? <a href="reset-password.php">Reset here</a></span>
+                                <span> Change password after reset? <a href="change-password.php">Change password here</a></span><br>
                             </form>
                         </div>
                     </div>

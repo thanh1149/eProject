@@ -1,19 +1,27 @@
 <?php
 require_once 'function.php';
 init_connection();
+$message = '';
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $name = $_POST["name"];
-    $password = $_POST["password"];
+    $current_password = $_POST["current_password"];
+    $new_password = $_POST["new_password"];
     $check_query = "SELECT * FROM user WHERE `name` = ? AND `password`=?";
     $check_stmt = $conn->prepare($check_query);
-    $check_stmt->bind_param("ss", $name,$password);
+    $check_stmt->bind_param("ss", $name,$current_password);
     $check_stmt->execute();
     $result = $check_stmt->get_result();
-    if($result->num_rows>0){
-        echo '<script>alert("Login succesfull!");</script>';
-        echo '<script>window.location.href = "buy-ticket.php";</script>';
-        exit;
+    if($result->num_rows > 0){
+        $update_query = "UPDATE user SET `password` = ? WHERE `name` = ?";
+        $update_stmt = $conn->prepare($update_query);
+        $update_stmt->bind_param("ss",$new_password,$name);
+        $update_stmt->execute();
+        if($update_stmt->affected_rows > 0){
+            echo '<script>alert("Change password succesfull!");</script>';
+            echo '<script>window.location.href = "login.php";</script>';
+            exit;
+        }
     }else{
         echo '<script>alert("Wrong username or password!");</script>';
     }
@@ -24,18 +32,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Change Password</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" rel="stylesheet">
     <link rel="stylesheet" href="css/fe-style.css" />
 </head>
 <body>
     <?php include('navbar.php'); ?>
-    <!-- login form -->
+    <!-- Change password form -->
     <div class="container-fluid product-main register-form bg-body-tertiary" id="product">
         <div class="container">
             <div class="con-title " style="padding-top: 20px">
-                USER LOGIN
+                CHANGE PASSWORD
                 <div class="con-title-i"></div>
             </div>
             <div class="cart-main">
@@ -52,17 +60,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="">Password:</label>
-                                    <input type="password" class="form-control" placeholder="*******" name="password" required>
-                                    <?php if (isset($error['password'])) : ?>
-                                        <p class="text-danger"><?php echo ($error['password']); ?></p>
+                                    <label for="">Current Password:</label>
+                                    <input type="password" class="form-control" placeholder="*******" name="current_password" required>
+                                    <?php if (isset($error['current_password'])) : ?>
+                                        <p class="text-danger"><?php echo ($error['current_password']); ?></p>
                                     <?php endif ?>
                                 </div>
 
-                                <button type="submit" class="btn btn-success" style="margin-top: 10px;">Login Here</button> <br>
+                                <div class="form-group">
+                                    <label for=""> New Password:</label>
+                                    <input type="password" class="form-control" placeholder="*******" name="new_password" required>
+                                    <?php if (isset($error['new_password'])) : ?>
+                                        <p class="text-danger"><?php echo ($error['new_password']); ?></p>
+                                    <?php endif ?>
+                                </div>
+
+                                <button type="submit" class="btn btn-success" style="margin-top: 10px;">Change Password</button> <br>
                                 <hr>
+                                <span>Already have an account? <a href="login.php">Login here</a></span><br><br>
                                 <span> Don't have an account? <a href="register.php">Register here</a></span><br><br>
-                                <span>Forget your password? <a href="reset-password.php">Reset here</a></span>
+                                <span> Forget password? <a href="reset-password.php">Reset password here</a></span><br>
                             </form>
                         </div>
                     </div>

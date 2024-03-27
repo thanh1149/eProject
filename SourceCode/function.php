@@ -5,7 +5,7 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-
+    // connect to db
     function init_connection(){
         global $conn;
         $servername ="localhost";
@@ -17,4 +17,24 @@
             die("Connection failed: " . $conn->connect_error);
         }
     }
+
+    //check login to buy ticket
+    function check_login() {
+        session_start();
+        $logged = $_SESSION['logged'] ?? false;
     
+        if (!$logged) {
+            header("Location: ../login.php");
+            exit();
+        }	
+    }
+
+    //generate random password for reset password
+    function generateRandomPassword() {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $password = '';
+        for ($i = 0; $i < 5; $i++) {
+            $password .= $characters[rand(0, strlen($characters) - 1)];
+        }
+        return $password;
+    }
