@@ -1,5 +1,5 @@
 <?php
-require_once 'function.php';
+require_once __DIR__ . "/../function.php";
 init_connection();
 $message ='';
 
@@ -47,10 +47,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Register</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" rel="stylesheet">
-    <link rel="stylesheet" href="css/fe-style.css" />
+    <link rel="stylesheet" href="../css/fe-style.css" />
+    <link rel="icon" href="logo.jpg"/>
 </head>
 <body>
-    <?php include('navbar.php'); ?>
+    <?php include('../navbar.php'); ?>
     <!-- register form -->
     <div class="container-fluid product-main register-form bg-body-tertiary" id="product">
         <div class="container">
@@ -106,7 +107,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
     </div>
 
-    <?php include('footer.php'); ?>
+    <?php include('../footer.php'); ?>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>

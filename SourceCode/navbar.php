@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-8">
                     <div class="img-logo">   
-                    <a class="navbar-brand" href="#"><img src="./image/logo.jpg " alt="Logo"></a>
+                    <a class="navbar-brand" href="home.php"><img src="image/logo.jpg " alt="Logo"></a>
                     </div>
         </div>
         <div class="col-md-4 col-12">
@@ -56,7 +56,7 @@
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-right">
                 <li class="nav-item">
-                        <a class="nav-link" href="register.php" target="blank">BUY TICKET</a>
+                        <a class="nav-link" href="./user/register.php" target="blank">BUY TICKET</a>
                 </li>
             </ul>
         </div>
