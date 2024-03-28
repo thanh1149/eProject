@@ -17,7 +17,7 @@
             die("Connection failed: " . $conn->connect_error);
         }
     }
-
+// =========================================================
     //check login to buy ticket
     function check_login() {
         session_start();

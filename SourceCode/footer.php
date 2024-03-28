@@ -15,7 +15,7 @@
                     <ul class="list-unstyled">
                         <li><a href="home.php">Home</a></li>
                         <li><a href="about-us.php">About Us</a></li>
-                        <li><a href="contact-us">Contact Us</a></li>
+                        <li><a href="contact-us.php">Contact Us</a></li>
                         <li><a href="faq.php">FAQ</a></li>
                     </ul>
                 </div>

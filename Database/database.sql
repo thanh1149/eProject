@@ -1,0 +1,6 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.4
+-- https://www.phpmyadmin.net/
+-- Server type: MariaDB
+-- Server: 127.0.0.1 via TCP/IP
+-- PHP version: 8.0.0

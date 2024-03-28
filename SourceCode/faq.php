@@ -58,7 +58,7 @@
         <div class="accordion-item">
             <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                <b>Am i permitted to bring my own food and beverages into the park?</b>
+                <b>Am I permitted to bring my own food and beverages into the park?</b>
                 </button>
             </h2>
             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#general-question">
@@ -114,7 +114,7 @@
         <div class="accordion-item">
             <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                <b>Can i book a place for events inside the park?</b>
+                <b>Can I book a place for events inside the park?</b>
                 </button>
             </h2>
             <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="food-beverage">
