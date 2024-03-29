@@ -27,7 +27,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-left">
                 <li class="nav-item ">
-                    <a class="nav-link" href="home.php">HOME</a>
+                    <a class="nav-link" href="../home.php">HOME</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">ABOUT US</a>
