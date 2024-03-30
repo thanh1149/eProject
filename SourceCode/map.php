@@ -10,7 +10,7 @@
 </head>
 <body>
     <?php include('nav+footer/navbar.php'); ?>
-
+    Map
 
     <?php include('nav+footer/footer.php'); ?>
     

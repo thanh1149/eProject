@@ -49,7 +49,7 @@
                         MORE
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">MAP</a></li>
+                        <li><a class="dropdown-item" href="map.php">MAP</a></li>
                         <li><a class="dropdown-item" href="#">GALLERY</a></li>
                     </ul>
                 </li>
