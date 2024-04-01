@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-body{
+.admin-login body{
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(75,14,154,1) 35%, rgba(0,212,255,1) 100%);
     font-family: 'Poppins', sans-serif;
 
@@ -17,7 +17,6 @@ form{
     background-color: white !important;
     padding: 50px;
 }
-
 .btn-primary{
     width: 100%;
     border: none;
@@ -45,4 +44,21 @@ h4{
     form {
         width: 100% !important;
     }
+}
+
+/* admin home page style */
+.navbar-custom {
+    background-color: #add8e6; /* Màu xanh nước biển nhạt */
+}
+.navbar-custom .navbar-brand {
+    color: #ffffff; /* Màu chữ trắng */
+    margin-right: 0px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+/* admin home content */
+.subheading-link {
+    text-decoration: none; 
+    color: inherit; 
 }

@@ -18,15 +18,10 @@
         }
     }
 // =========================================================
-    //check login to buy ticket
     function check_login() {
-        session_start();
-        $logged = $_SESSION['logged'] ?? false;
-    
-        if (!$logged) {
-            header("Location: login.php");
-            exit();
-        }	
+        if(empty($_SESSION['name'])){
+            header('location:login.php');
+        }
     }
 
     //generate random password for reset password
