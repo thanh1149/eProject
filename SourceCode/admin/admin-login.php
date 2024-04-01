@@ -30,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link rel="stylesheet" href="style.css" >
     <title>Admin login Form</title>
 </head>
-<body class="admin-login">
+<body>
     <div class="container-fluid">
         <form class="mx-auto" method="POST">
             <h4 class="text-center">Login</h4>

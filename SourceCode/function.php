@@ -18,11 +18,11 @@
         }
     }
 // =========================================================
-    function check_login() {
-        if(empty($_SESSION['name'])){
-            header('location:login.php');
-        }
-    }
+    // function check_login() {
+    //     if(empty($_SESSION['name'])){
+    //         header('location:login.php');
+    //     }
+    // }
 
     //generate random password for reset password
     function generateRandomPassword() {

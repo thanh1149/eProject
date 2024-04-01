@@ -30,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $stmt->execute();
         ?>
         <script>
-            alert("Đăng ký thành công!");
+            alert("Register Succesful!");
             setTimeout(function() {
                 window.location.href = "login.php";
             }, 1000);

@@ -1,0 +1,16 @@
+/* admin home page style */
+.navbar-custom {
+    background-color: #add8e6; /* Màu xanh nước biển nhạt */
+}
+.navbar-custom .navbar-brand {
+    color: #ffffff; /* Màu chữ trắng */
+    margin-right: 0px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+/* admin home content */
+.subheading-link {
+    text-decoration: none; 
+    color: inherit; 
+}
