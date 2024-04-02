@@ -1,5 +1,4 @@
 <?php
-    session_start();
     // connect to MySQL server
     $conn = new mysqli("localhost", "root", "");
     if ($conn->connect_error) {
@@ -19,10 +18,13 @@
     }
 
     function check_login() {
+        session_start();
         if(empty($_SESSION['name'])){
             header('location:login.php');
+            exit;
         }
     }
+    
 
     //generate random password for reset password
     function generateRandomPassword() {

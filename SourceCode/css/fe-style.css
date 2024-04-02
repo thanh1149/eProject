@@ -116,3 +116,43 @@
 .dc-content{
     padding-bottom: 20px;
 }
+
+/* carusel */
+.carousel-item > img{
+    height: 300px;
+    width: 100px;
+}
+
+/* ticket card */
+.card-body-toggle {
+    display: none;
+}
+.card:hover .card-body-toggle {
+    display: block;
+}
+/* Style for ticket info toggle button */
+.ticket-info-toggle {
+    position: relative;
+}
+
+.ticket-info-toggle::after {
+    content: '!';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 50%;
+    background-color: transparent;
+    color: #007bff;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #007bff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.ticket-infor {
+    display: none;
+}
