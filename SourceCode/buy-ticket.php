@@ -2,12 +2,37 @@
 require_once 'function.php';
 session_start();
 
-if(isset($_SESSION['name'])) {
+if (isset($_SESSION['name'])) {
     init_connection();
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
-    }$name = $_SESSION['name'];
+    }
+    $name = $_SESSION['name'];
 }
+// cart
+if(isset($_POST['add_to_cart'])) {
+    $ticket_id = $_GET['id']; // ID của vé
+    $ticket_name = $_POST['ticket_name']; // Tên của vé
+    $ticket_price = $_POST['ticket_price']; // Giá của vé
+    $quantity = $_POST['quantity']; // Số lượng vé
+
+    // Tạo một mảng chứa thông tin vé và số lượng
+    $ticket_data = array(
+        'id' => $ticket_id,
+        'name' => $ticket_name,
+        'price' => $ticket_price,
+        'quantity' => $quantity
+    );
+
+    // Kiểm tra nếu giỏ hàng đã tồn tại trong session
+    if(!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = array(); // Nếu không, tạo giỏ hàng mới
+    }
+
+    // Thêm vé vào giỏ hàng
+    $_SESSION['cart'][] = $ticket_data;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,66 +120,90 @@ if(isset($_SESSION['name'])) {
                         <?php
                         $query = "SELECT name FROM users WHERE `name` = '$name'";
                         $result = mysqli_query($conn, $query);
-                        if($result){
+                        if ($result) {
                             $row = mysqli_fetch_assoc($result);
                             echo "Hello, " . $row['name'];
-                        }else{
-                            echo "Error: " . mysqli_error($conn); 
-                        }   
+                        } else {
+                            echo "Error: " . mysqli_error($conn);
+                        }
                         ?>
                     </li>
-                    <button class="btn btn-link text-black" style="text-decoration: none" onclick="logout()">Exit</button>
+                    <li class="nav-item">
+                        <a class="nav-link log" href="logout.php"><i class="fas fa-sign-in-alt"></i>Exit</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- ticket main -->
+    <!-- ticket infor -->
     <div class="container-fluid">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-6">
-                        <h2 class="text-center">Shopping Cart Date</h2>
-                        <div class="col-md-12">
-                            <div class="row">
-                                <?php
-                                    $query = "SELECT * FROM ticket";
-                                    if ($result = mysqli_query($conn, $query)) {
-                                        if (mysqli_num_rows($result) > 0) {
-                                            while ($row = mysqli_fetch_array($result)) {
-                                                ?>
-                                                <div class="col-md-4">
-                                                    <form method="get" action="buy-ticket.php?id=<?= $row['id'] ?>">
-                                                        <img src="/ticket/ <? $row['ticket_img'] ?>" style='height:150px;'>
-                                                        <h5 class="text-center"><?= $row['ticket_name'] ?></h5>
-                                                        <h5 class="text-center"><?= number_format($row['ticket_price'],3) ?></h5>
-                                                    </form>
-                                                </div>
-                                                <?php
-                                            }
-                                        } else {
-                                            echo "Không có dữ liệu hiển thị.";
-                                        }
-                                        mysqli_free_result($result);
-                                    } else {
-                                        echo "Lỗi truy vấn: " . mysqli_error($conn);
-                                    }                      
-                        ?>
-                        </div>
-                        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">Shopping Cart Date</h2>
+                <div class="row" id="ticket-list">
+                    <?php
+                    $query = "SELECT * FROM ticket";
+                    if ($result = mysqli_query($conn, $query)) {
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                                <div class="col-md-4">
+                                    <form method="post" action="buy-ticket.php?id=<?= $row['id'] ?>" class="ticket-form">
+                                        <img src="<?php echo $row['ticket_img'] ?>" class="ticket-image">
+                                        <h5 class="text-center ticket-name"><?= $row['ticket_name'] ?></h5>
+                                        <h5 class="text-center ticket-price"><?= number_format($row['ticket_price'], 3) ?></h5>
+                                        <input type="hidden" name="ticket_name" value="<?= $row['ticket_name'] ?>">
+                                        <input type="hidden" name="ticket_price" value="<?= $row['ticket_price'] ?>">
+                                        <input type="number" name="quantity" value="1" class="form-control ticket-quantity">
+                                        <input type="submit" name="add_to_cart" class="btn btn-warning btn-block my-2 ticket-submit" value="Add to cart">
+                                    </form>
+                                </div>
+                    <?php
+                            }
+                        } else {
+                            echo "<div class='col-md-12'><p class='text-center'>Không có dữ liệu hiển thị.</p></div>";
+                        }
+                        mysqli_free_result($result);
+                    } else {
+                        echo "<div class='col-md-12'><p class='text-center'>Lỗi truy vấn: " . mysqli_error($conn) . "</p></div>";
+                    }
+                    ?>
                 </div>
-                <div class="col-md-6">
-                        <h2 class="text-center">Iteam Selected</h2>
-                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ticket cart -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+            <h2>Giỏ hàng</h2>
+                <form method="post" action="purchase.php">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Giá tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-items">
+                            <!-- Đây là nơi hiển thị các sản phẩm trong giỏ hàng -->
+                        </tbody>
+                    </table>
+                    <button type="submit" class="btn btn-primary">Xác nhận mua hàng</button>
+                </form> 
             </div>
         </div>
     </div>
 
 
+
     <?php include('./nav+footer/footer.php'); ?>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
+
 </body>
 
 </html>

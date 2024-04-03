@@ -156,3 +156,38 @@
 .ticket-infor {
     display: none;
 }
+
+#ticket-list {
+    margin-top: 20px;
+}
+
+.ticket-form {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.ticket-name {
+    margin-bottom: 5px;
+}
+
+.ticket-price {
+    margin-bottom: 15px;
+}
+
+.ticket-quantity {
+    margin-bottom: 15px;
+}
+
+.ticket-submit {
+    margin-top: 10px;
+}
