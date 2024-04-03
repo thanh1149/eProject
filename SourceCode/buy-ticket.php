@@ -113,7 +113,37 @@ if(isset($_SESSION['name'])) {
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-6">
-
+                        <h2 class="text-center">Shopping Cart Date</h2>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <?php
+                                    $query = "SELECT * FROM ticket";
+                                    if ($result = mysqli_query($conn, $query)) {
+                                        if (mysqli_num_rows($result) > 0) {
+                                            while ($row = mysqli_fetch_array($result)) {
+                                                ?>
+                                                <div class="col-md-4">
+                                                    <form method="get" action="buy-ticket.php?id=<?= $row['id'] ?>">
+                                                        <img src="/ticket/ <? $row['ticket_img'] ?>" style='height:150px;'>
+                                                        <h5 class="text-center"><?= $row['ticket_name'] ?></h5>
+                                                        <h5 class="text-center"><?= number_format($row['ticket_price'],3) ?></h5>
+                                                    </form>
+                                                </div>
+                                                <?php
+                                            }
+                                        } else {
+                                            echo "Không có dữ liệu hiển thị.";
+                                        }
+                                        mysqli_free_result($result);
+                                    } else {
+                                        echo "Lỗi truy vấn: " . mysqli_error($conn);
+                                    }                      
+                        ?>
+                        </div>
+                        </div>
+                </div>
+                <div class="col-md-6">
+                        <h2 class="text-center">Iteam Selected</h2>
                 </div>
             </div>
         </div>
