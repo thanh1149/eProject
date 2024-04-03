@@ -1,15 +1,12 @@
 <?php
 require_once 'function.php';
-init_connection();
-// check_login();
-$sql_select_tickets = "SELECT * FROM ticket";
-$result = $conn->query($sql_select_tickets);
+session_start();
 
-$tickets = array();
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $tickets[] = $row; 
-    }
+if(isset($_SESSION['name'])) {
+    init_connection();
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }$name = $_SESSION['name'];
 }
 ?>
 <!DOCTYPE html>
@@ -24,15 +21,15 @@ if ($result->num_rows > 0) {
     <link rel="stylesheet" href="css/fe-style.css" />
     <script>
         function logout() {
-            window.location.href = "login.php";
+            $.ajax({
+                url: 'logout.php', // Đường dẫn đến file xử lý đăng xuất
+                type: 'POST', // Phương thức gửi yêu cầu
+                success: function(response) {
+                    // Chuyển hướng về trang đăng nhập sau khi đăng xuất
+                    window.location.href = "login.php";
+                }
+            });
         }
-
-        $(document).ready(function () {
-        $('.ticket-info-toggle').click(function () {
-            var inforText = $(this).parents('.card-body').find('.ticket-infor').text();
-            $('#ticketInfoContent').text(inforText);
-        });
-    });
     </script>
 </head>
 
@@ -96,10 +93,14 @@ if ($result->num_rows > 0) {
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-right">
                     <li class="nav-item">
                         <?php
-                        $query = "SELECT name FROM users LIMIT 1";
+                        $query = "SELECT name FROM users WHERE `name` = '$name'";
                         $result = mysqli_query($conn, $query);
-                        $row = mysqli_fetch_assoc($result);
-                        echo "Hello, " . $row['name'];
+                        if($result){
+                            $row = mysqli_fetch_assoc($result);
+                            echo "Hello, " . $row['name'];
+                        }else{
+                            echo "Error: " . mysqli_error($conn); 
+                        }   
                         ?>
                     </li>
                     <button class="btn btn-link text-black" style="text-decoration: none" onclick="logout()">Exit</button>
@@ -108,49 +109,22 @@ if ($result->num_rows > 0) {
         </div>
     </nav>
     <!-- ticket main -->
-    <div class="container mt-5">
-    <div class="row">
-        <?php foreach ($tickets as $ticket) { ?>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="<?php echo $ticket['ticket_img']; ?>" class="card-img-top" alt="Ticket Image">
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo $ticket['ticket_name']; ?></h5>
-                        <p class="card-text ticket-infor"><?php echo $ticket['ticket_infor']; ?></p>
-                        <div class="row">
-                            <div class="col-6">
-                                <button class="btn btn-info btn-sm ticket-info-toggle" data-toggle="modal" data-target="#ticketModal">!</button>
-                            </div>
-                            <div class="col-6 text-right">
-                                <p class="card-text"><strong><?php echo $ticket['ticket_price']; ?></strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
-    </div>
-</div>
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6">
 
-<!-- Bootstrap Modal -->
-<div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="ticketModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="ticketModalLabel">Ticket Information</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p id="ticketInfoContent"></p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
     <?php include('./nav+footer/footer.php'); ?>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
 </body>
 
 </html>

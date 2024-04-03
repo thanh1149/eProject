@@ -1,29 +1,6 @@
 <?php
 require_once 'function.php';
 init_connection();
-// function login($name,$password){
-//     global $conn;
-//     $sql = "SELECT id FROM users WHERE `name` = ? AND `password`= ?";
-// 	$stmt = $conn->prepare($sql);
-// 	$stmt->bind_param('ss', $name, $password);
-// 	$stmt->execute();
-// 	$result = $stmt->get_result();
-// 	$users = $result->fetch_all();
-// 	return $users ? true : false;
-// }
-//     $name = $_POST["name"] ?? '';
-//     $password = $_POST["password"] ?? '';
-
-//     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//         init_connection();
-//         $success = login($name, $password);
-//         if ($success) {
-//             $_SESSION['logged'] = true;
-//             header("Location:buy-ticket.php");
-//         } else {
-//             echo '<script>alert("Wrong username or password!");</script>';
-//         }
-//     }
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $name = $_POST["name"];
@@ -34,8 +11,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $check_stmt->execute();
     $result = $check_stmt->get_result();
     if($result->num_rows>0){
+        session_start();
+        $_SESSION['name'] = $name;
         echo '<script>alert("Login succesfull!");</script>';
-        echo '<script>window.location.href = "buy-ticket.php";</script>';
+        header("Location: buy-ticket.php");
         exit;
     }else{
         echo '<script>alert("Wrong username or password!");</script>';
