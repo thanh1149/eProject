@@ -24,29 +24,29 @@
         <br>
         <div class="card-container">
             <div class="card">
-                <img src="image/home/home 5.jpeg" class="card-img-top" alt="...">
+                <img src="image/event/1.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">LION DANCE – DRAGON DANCE</h5>
                     <p class="card-text">Mesmerizing Traditional Lion Dance – Dragon Dance from 19:30 – 20:00 every Saturday</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <a href="event 1.php" class="btn btn-primary">More</a>
                 </div>
             </div>
 
             <div class="card">
-                <img src="image/home/home 6.jpeg" class="card-img-top" alt="...">
+                <img src="image/event/2.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">RANDOM DANCE KPOP</h5>
                     <p class="card-text">Energetic Random Dance from 19:30-20:00 every Saturday.</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <a href="event 2.php" class="btn btn-primary">More</a>
                 </div>
             </div>
 
             <div class="card">
-                <img src="image/home/home 7.jpeg" class="card-img-top" alt="...">
+                <img src="image/event/3.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">RANDOM DANCE KPOP</h5>
-                    <p class="card-text">Energetic Random Dance from 19:30-20:00 every Saturday.</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <h5 class="card-title">Ice cream week</h5>
+                    <p class="card-text">ORGANIZED In 8 consecutive days from August 20 to 27, Sun World Danang Wonders hosted the super attractive “Ice Cream Week”. In addition to free access...</p>
+                    <a href="event 3.php" class="btn btn-primary">More</a>
                 </div>
             </div>
         </div>
