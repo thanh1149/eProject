@@ -97,7 +97,7 @@
                 <div class="card-body">
                     <h5 class="card-title">THE ICONIC WATER PUPPET SHOW RETURNS TO ASIA PARK</h5>
                     <p class="card-text">Water puppetry – the perfect combination of singing, dancing, acting and the masterful control of various puppets, along with an array of effects has created a replica of the Vietnamese culture, where the traditional values harmonize with modern creativity. And Asia Park is bringing this show back to the Dragon Boat stage from December 31st, …</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <a href="home 1.php" class="btn btn-primary">More</a>
                 </div>
             </div>
 
@@ -106,7 +106,7 @@
                 <div class="card-body">
                     <h5 class="card-title">ASIA PARK’S OPERATION SCHEDULE & TICKET PRICE POLICY IN 2024</h5>
                     <p class="card-text">We welcome you to the “Grand Wonder” expedition at Asia Park. Asia Park would like to announce our new operation schedule from January 1, 2024 as follows: Asia Park welcomes visitors from 15h00 – 22h00 everyday from Monday to Sunday. The Sun Wheel operates from 16h30 – 22h00. The outdoor game zone:15h00 – 21h30. The indoor …</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <a href="home 2.php" class="btn btn-primary">More</a>
                 </div>
             </div>
 
@@ -115,11 +115,18 @@
                 <div class="card-body">
                     <h5 class="card-title">EXCITING WEEKEND EVENTS AT ASIA PARK</h5>
                     <p class="card-text">Welcome to the enchanting journey of “Brilliant Wonders” right here at Asia Park. Asia Park is delighted to offer FREE ENTRY to visitors for unlimited exploration and check-ins every day from 3 PM to 10 PM. At Asia Park, you’re invited to capture sweet moments with vibrant flower carpets and distinctive architectures inspired by various …</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <a href="home 3.php" class="btn btn-primary">More</a>
                 </div>
             </div>
         </div>
+        <br>
+        <p class="mb-4">Date: October 31st, 2024</p>
+        <p class="mb-4">Time: 7:00 PM - 12:00 AM</p>
+        <p class="mb-4">Location: Asia Park, Da Nang, Vietnam</p>
+        <p class="mb-4">Tickets are available for purchase online or at the venue. Don't miss out on this thrilling Halloween experience!</p>
+        <br>
     </div>
+    <br><br>
     <?php include('nav+footer/footer.php'); ?>
     <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
