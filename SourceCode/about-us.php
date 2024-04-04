@@ -64,6 +64,12 @@
                         </div>
                         <br><br><br>
                     </section>
+                    <br>
+                    <p class="mb-4">Date: October 31st, 2024</p>
+                    <p class="mb-4">Time: 7:00 PM - 12:00 AM</p>
+                    <p class="mb-4">Location: Asia Park, Da Nang, Vietnam</p>
+                    <p class="mb-4">Tickets are available for purchase online or at the venue. Don't miss out on this thrilling Halloween experience!</p>
+                    <br>
                 </div>
                 <div class="col-md-3">
                     <section id="section2">
@@ -72,25 +78,25 @@
                             <div class="box">
                                 <a href="experience.php">
                                     <p class="text-center">Experience</p>
-                                    <img src="image/about_us/1.jpeg" alt="" class="img-fluid">
+                                    <img src="image/about_us/1.jpeg" alt="" class="bigger-img">
                                 </a>
                             </div>
                             <div class="box">
                                 <a href="entertainment.php">
                                     <p class="text-center">Entertainment</p>
-                                    <img src="image/about_us/2.jpeg" alt="" class="img-fluid">
+                                    <img src="image/about_us/2.jpeg" alt="" class="bigger-img">
                                 </a>
                             </div>
                             <div class="box">
                                 <a href="restaurant.php">
                                     <p class="text-center">Restaurant</p>
-                                    <img src="image/about_us/3.jpeg" alt="" class="img-fluid">
+                                    <img src="image/about_us/3.jpeg" alt="" class="bigger-img">
                                 </a>
                             </div>
                             <div class="box">
                                 <a href="event.php">
                                     <p class="text-center">Event</p>
-                                    <img src="image/about_us/4.jpeg" alt="" class="img-fluid">
+                                    <img src="image/about_us/4.jpeg" alt="" class="bigger-img">
                                 </a>
                             </div>
                         </div>
