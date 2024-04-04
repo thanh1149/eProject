@@ -24,57 +24,57 @@
         <br>
         <div class="card-container">
             <div class="card">
-                <img src="image/home/home 5.jpeg" class="card-img-top" alt="...">
+                <img src="image/experience/1.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">SINGAPORE ZONE</h5>
                     <p class="card-text">MERLION ZONE With a height of 3.6m and weight of 10 tons The Merlion is a Singaporean mascot with the image of an animal with a lion head and a fish tail riding on...</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <a href="experience 1.php" class="btn btn-primary">More</a>
                 </div>
             </div>
 
             <div class="card">
-                <img src="image/home/home 6.jpeg" class="card-img-top" alt="...">
+                <img src="image/experience/4.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">NEPAL ZONE</h5>
                     <p class="card-text">Nepal station: Nepal is considered a multicultural country with different religions such as Hinduism, Buddhism, Islam, Christianity etc. The hybrid culture between...</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <a href="experience 2.php" class="btn btn-primary">More</a>
                 </div>
             </div>
 
             <div class="card">
-                <img src="image/home/home 7.jpeg" class="card-img-top" alt="...">
+                <img src="image/experience/7.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">CAMBODIA ZONE</h5>
                     <p class="card-text">THE DARK RIDE Meet the Mystery House inspired by traditional architectural features at Cambodian zone. The building amazes visitors by its mysterious appearance. No...</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <a href="experience 3.php" class="btn btn-primary">More</a>
                 </div>
             </div>
         </div>
         <br><br>
         <div class="card-container">
             <div class="card">
-                <img src="image/home/home 5.jpeg" class="card-img-top" alt="...">
+                <img src="image/experience/10.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">THAILAND ZONE</h5>
                     <p class="card-text">Thailand Zone Description: The country of golden pagodas is recreated on the idea of a golden tower and the mythical mascot, Kinnara from Himapan Forest (belonging...</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <a href="experience 4.php" class="btn btn-primary">More</a>
                 </div>
             </div>
             <div class="card">
-                <img src="image/home/home 6.jpeg" class="card-img-top" alt="...">
+                <img src="image/experience/15.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">CHINA ZONE</h5>
                     <p class="card-text">PANDA RESTAURANT Chinese style architecture With an area of 3241m2, including 4 buildings of restaurants and cafes. Accommodating about 1,000 seats, including 600...</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <a href="experience 5.php" class="btn btn-primary">More</a>
                 </div>
             </div>
 
             <div class="card">
-                <img src="image/home/home 7.jpeg" class="card-img-top" alt="...">
+                <img src="image/experience/13.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">INDIA ZONE</h5>
                     <p class="card-text">India Zone: the observatory shelter and Namaste cultural stage can accommodate up to 2000 guests, which is an ideal place to organize events, large and small...</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <a href="experience 6.php" class="btn btn-primary">More</a>
                 </div>
             </div>
         </div>
