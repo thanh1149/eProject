@@ -24,57 +24,57 @@
         <br>
         <div class="card-container">
             <div class="card">
-                <img src="image/home/home 5.jpeg" class="card-img-top" alt="...">
+                <img src="image/entertainment/1.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">SINGAPORE ZONE</h5>
-                    <p class="card-text">MERLION ZONE With a height of 3.6m and weight of 10 tons The Merlion is a Singaporean mascot with the image of an animal with a lion head and a fish tail riding on...</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <h5 class="card-title">Queen Cobra</h5>
+                    <p class="card-text">SUSPENDED Be thrown into a wild swing and freefall at the speed of 65kph the same way a fabulous bartender makes his own cocktail. Type: Extreme Number of...</p>
+                    <a href="entertainment 1.php" class="btn btn-primary">More</a>
                 </div>
             </div>
 
             <div class="card">
-                <img src="image/home/home 6.jpeg" class="card-img-top" alt="...">
+                <img src="image/entertainment/5.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">NEPAL ZONE</h5>
-                    <p class="card-text">Nepal station: Nepal is considered a multicultural country with different religions such as Hinduism, Buddhism, Islam, Christianity etc. The hybrid culture between...</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <h5 class="card-title">Paradise Falls</h5>
+                    <p class="card-text">As the first air roller coaster train model in Vietnam, Paradise Fall consists of 7 trains, each of which has two stylish all-terrain motors, players are thrusted...</p>
+                    <a href="entertainment 2.php" class="btn btn-primary">More</a>
                 </div>
             </div>
 
             <div class="card">
-                <img src="image/home/home 7.jpeg" class="card-img-top" alt="...">
+                <img src="image/entertainment/7.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">CAMBODIA ZONE</h5>
-                    <p class="card-text">THE DARK RIDE Meet the Mystery House inspired by traditional architectural features at Cambodian zone. The building amazes visitors by its mysterious appearance. No...</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <h5 class="card-title">Golden Sky Tower</h5>
+                    <p class="card-text">Established as the Top 2 tallest free fall towers in Vietnam with a height of 47m, equivalent to the height of a 13-storey building. Golden Sky Tower will bring ...</p>
+                    <a href="entertainment 3.php" class="btn btn-primary">More</a>
                 </div>
             </div>
         </div>
         <br><br>
         <div class="card-container">
             <div class="card">
-                <img src="image/home/home 5.jpeg" class="card-img-top" alt="...">
+                <img src="image/entertainment/13.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">THAILAND ZONE</h5>
-                    <p class="card-text">Thailand Zone Description: The country of golden pagodas is recreated on the idea of a golden tower and the mythical mascot, Kinnara from Himapan Forest (belonging...</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <h5 class="card-title">Love Locks</h5>
+                    <p class="card-text">Inspired by love locks and blended with catchy K-pop tunes, the game is a big feast of music and light. The romantic and inspiring content of this game has taken...</p>
+                    <a href="entertainment 4.php" class="btn btn-primary">More</a>
                 </div>
             </div>
             <div class="card">
-                <img src="image/home/home 6.jpeg" class="card-img-top" alt="...">
+                <img src="image/entertainment/11.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">CHINA ZONE</h5>
-                    <p class="card-text">PANDA RESTAURANT Chinese style architecture With an area of 3241m2, including 4 buildings of restaurants and cafes. Accommodating about 1,000 seats, including 600...</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <h5 class="card-title">Port of Sky Treasure</h5>
+                    <p class="card-text">Inspired by the wild pirate chase on the Malacca (Singapore), this game will hurl you all into non-stop excitements by swaying hard in the air. Type: Extreme...</p>
+                    <a href="entertainment 5.php" class="btn btn-primary">More</a>
                 </div>
             </div>
 
             <div class="card">
-                <img src="image/home/home 7.jpeg" class="card-img-top" alt="...">
+                <img src="image/entertainment/14.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">INDIA ZONE</h5>
-                    <p class="card-text">India Zone: the observatory shelter and Namaste cultural stage can accommodate up to 2000 guests, which is an ideal place to organize events, large and small...</p>
-                    <a href="#" class="btn btn-primary">More</a>
+                    <h5 class="card-title">Indoor play area for children</h5>
+                    <p class="card-text">Lost in the fairy world where cups do move. Each group of 3 tourists are seated in a giant cup that swing clockwise and vice versa in different beats up to the...</p>
+                    <a href="entertainment 6.php" class="btn btn-primary">More</a>
                 </div>
             </div>
         </div>
