@@ -48,8 +48,8 @@ html
 .dropdown:hover .dropdown-menu {
     display: block;
 }
-/* Định dạng phông chữ và màu chữ cho các phần tử */
-.navbar-brand, .hotline, .numberphone, .nav-link {
+
+.navbar-brand, .nav-link {
     color: white; 
     font-family: 'Arial', sans-serif; 
 }
@@ -57,10 +57,6 @@ html
 .navbar {
     background-color: #ee2f25 ; 
 }
-
-/* Định dạng màu nền cho navbar khi được hover */
-/* .navbar-nav .nav-link:hover {
-    background-color: #dc3545; /* Màu đỏ sáng */
 
 
 /* footer  */
@@ -93,7 +89,9 @@ html
     text-decoration: none;
     color: inherit;
 }
-
+.footer {
+    background-color: #ee2f25 ; 
+}
 /* register form */
 .register-form {
     padding-bottom: 30px;
@@ -129,9 +127,7 @@ html
 .breadcrumb-item.active {
     color: #007bff;
 }
-.footer {
-    background-color: #ee2f25 ; 
-}
+
 /* faq css */
 .faq-pic {
     padding-right: 250px;

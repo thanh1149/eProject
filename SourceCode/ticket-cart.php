@@ -2,7 +2,6 @@
 require_once 'function.php';
 session_start();
 
-
 if (isset($_SESSION['name'])) {
     init_connection();
     if ($conn->connect_error) {
@@ -11,16 +10,10 @@ if (isset($_SESSION['name'])) {
     $name = $_SESSION['name'];
 }
 // cart
-if(isset($_POST["add"])){
-    $id = $_GET["id"];
-    $ticket_name = $_POST["ticket_name"];
-    $price = $_POST["ticket_price"];
-    $quantity = $_POST["quantity"];
-    $date = $_POST["datepicker"];
-
-    $sql = "INSERT INTO `ticket-cart`(`name`, `price`,`quantity`,`date`) VALUES ('$ticket_name','$price','$quantity','$date');";
-    mysqli_query($conn, $sql);
-    
+if(isset($_GET["action"]) && $_GET["action"] == "delete"){
+    $ticket = $_GET["name"];
+    $deleteQuery = "DELETE FROM `ticket-cart` WHERE `name` = '$ticket'";
+    mysqli_query($conn, $deleteQuery);
 }
 
 ?>
@@ -30,7 +23,7 @@ if(isset($_POST["add"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buy Ticket</title>
+    <title>Ticket Cart</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" rel="stylesheet">
     <link rel="stylesheet" href="css/buy-ticket.css" />
@@ -45,6 +38,18 @@ if(isset($_POST["add"])){
                 }
             });
         }
+
+    $(document).ready(function() {
+        $('#proceedBtn').click(function() {
+            $('#confirmModal').modal('show');
+        });
+
+        $('#confirmBtn').click(function() {
+            window.location.href = "buy-ticket.php";
+        });
+    });
+
+
     </script>
 </head>
 
@@ -125,49 +130,76 @@ if(isset($_POST["add"])){
             </div>
         </div>
     </nav>
-    <!-- ticket infor -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="text-center" style="padding-top:10px;">Ticket List</h2>
-                <div class="row" id="ticket-list">
-                    <?php
-                    $query = "SELECT * FROM ticket ORDER BY id ASC";
-                    if ($result = mysqli_query($conn, $query)) {
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($row = mysqli_fetch_array($result)) {
+    <!-- ticket cart -->
+    <div class="table_container">
+        <table>
+            <tr>
+                <th>Ticket Name</th>
+                <th>Ticket Price</th>
+                <th>Quantity</th>
+                <th>Date</th>
+                <th>Total Price</th>
+                <th>Remove Item</th>
+            </tr>
+            <?php
+            $query = "SELECT * FROM `ticket-cart` ORDER BY id ASC";
+            $result = mysqli_query($conn, $query);
+            $total = 0;
+            if(mysqli_num_rows($result)>0){
+                while($row = mysqli_fetch_array($result)){
                     ?>
-                                <div class="col-md-4">
-                                    <form method="post" action="buy-ticket.php?action=add&id=<?= $row['id'] ?>" class="ticket-form">
-                                        <img src="<?php echo $row['ticket_img'] ?>" class="ticket-image">
-                                        <h5 class="text-center ticket-name"><?= $row['ticket_name'] ?></h5>
-                                        <h5 class="text-center ticket-price"><?= number_format($row['ticket_price'], 3) ?></h5>
-                                        <input type="hidden" name="ticket_name" value="<?= $row['ticket_name'] ?>">
-                                        <input type="hidden" name="ticket_price" value="<?= $row['ticket_price'] ?>">
-                                        <input type="number" name="quantity" value="1" class="form-control ticket-quantity">
-                                        <input type="date"  name="datepicker" class="form-control" required>
-                                        
-                                        <input type="submit" name="add" class="btn btn-warning btn-block my-2 ticket-submit" value="Add to cart">
-                                    </form>
-                                </div>
-                    <?php
-                            }
-                        } else {
-                            echo "<div class='col-md-12'><p class='text-center'>Không có dữ liệu hiển thị.</p></div>";
-                        }
-                        mysqli_free_result($result);
-                    } else {
-                        echo "<div class='col-md-12'><p class='text-center'>Lỗi truy vấn: " . mysqli_error($conn) . "</p></div>";
+                    <tr>
+                        <td><?php echo $row["name"];?></td>
+                        <td><?php echo $row["price"];?></td>
+                        <td><?php echo $row["quantity"];?></td>
+                        <td><?php echo $row["date"];?></td>
+                        <td><?php echo number_format($row["quantity"]*$row["price"],2);?></td>
+                        <td><a href="ticket-cart.php?action=delete&name=<?php echo $row["name"];?>"><span>Remove Item</span></a></td>
+                        <?php
+                        $total = $total + ($row["quantity"]*$row["price"]);
                     }
-                    ?>
+                }
+                ?>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><?php echo number_format($total, 2);?></td>
+                    <td></td>
+                </tr>
+        </table>
+        <div class="text-center">
+            <button class="btn btn-primary" id="proceedBtn">Proceed to Payment</button>
+        </div>
+    </div>
+    <div class="text-center">
+        <a href="buy-ticket.php" class="btn btn-primary">Ticket type</a>
+        <a href="ticket-cart.php" class="btn btn-success">Ticket Cart</a>
+    </div>
+                
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmModalLabel">Confirm Payment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="text-center">
-                    <a href="buy-ticket.php" class="btn btn-primary">Ticket type</a>
-                    <a href="ticket-cart.php" class="btn btn-success">Ticket Cart</a>
+                <div class="modal-body">
+                Are you sure you want to proceed to payment?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="confirmBtn">Confirm</button>
                 </div>
             </div>
         </div>
     </div>
+
+
+
 
 
     <?php include('./nav+footer/footer.php'); ?>
