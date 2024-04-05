@@ -1,18 +1,18 @@
 <?php
 require_once 'function.php';
 session_start();
+init_connection();
 
-if (isset($_SESSION['name'])) {
-    init_connection();
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    $name = $_SESSION['name'];
+if(isset($_SESSION['id'])) {
+    $user_id = $_SESSION['id'];
+} else {
+    header("Location: login.php");
+    exit(); 
 }
 // cart
 if(isset($_GET["action"]) && $_GET["action"] == "delete"){
     $ticket = $_GET["name"];
-    $deleteQuery = "DELETE FROM `ticket-cart` WHERE `name` = '$ticket'";
+    $deleteQuery = "DELETE FROM `ticket-cart` WHERE `name` = '$ticket' AND `user_id` = '$user_id'";
     mysqli_query($conn, $deleteQuery);
 }
 
@@ -111,16 +111,11 @@ if(isset($_GET["action"]) && $_GET["action"] == "delete"){
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-right">
-                    <li class="nav-item">
+                <li class="nav-item">
                         <?php
-                        $query = "SELECT name FROM users WHERE `name` = '$name'";
-                        $result = mysqli_query($conn, $query);
-                        if ($result) {
-                            $row = mysqli_fetch_assoc($result);
-                            echo "Hello, " . $row['name'];
-                        } else {
-                            echo "Error: " . mysqli_error($conn);
-                        }
+                            if (isset($_SESSION['name'])) {
+                                echo "Hello, " . $_SESSION['name'];
+                            }
                         ?>
                     </li>
                     <li class="nav-item">
@@ -142,7 +137,7 @@ if(isset($_GET["action"]) && $_GET["action"] == "delete"){
                 <th>Remove Item</th>
             </tr>
             <?php
-            $query = "SELECT * FROM `ticket-cart` ORDER BY id ASC";
+            $query = "SELECT * FROM `ticket-cart` WHERE `user_id` = '$user_id' ORDER BY id ASC";
             $result = mysqli_query($conn, $query);
             $total = 0;
             if(mysqli_num_rows($result)>0){
@@ -171,37 +166,12 @@ if(isset($_GET["action"]) && $_GET["action"] == "delete"){
                     <td></td>
                 </tr>
         </table>
-        <div class="text-center">
-            <button class="btn btn-primary" id="proceedBtn">Proceed to Payment</button>
-        </div>
     </div>
     <div class="text-center">
         <a href="buy-ticket.php" class="btn btn-primary">Ticket type</a>
         <a href="ticket-cart.php" class="btn btn-success">Ticket Cart</a>
     </div>
                 
-    <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="confirmModalLabel">Confirm Payment</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                Are you sure you want to proceed to payment?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" id="confirmBtn">Confirm</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
     <?php include('./nav+footer/footer.php'); ?>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

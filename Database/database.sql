@@ -11,3 +11,12 @@ $sql_create_table = "CREATE TABLE IF NOT EXISTS ticket (
     ('Adult All in one Ticket', '250.000', 'All In One experience ticket includes unlimited experience tickets for outdoor/indoor/Sun Wheel games.... Does not include food, prize games, haunted houses, trams... Time of use: 15:00- 22:00. Note that service operating hours may vary depending on season or weather.','image/ticket/ticket-adult2.jpg'),
     ('Kid All in one Ticket', '125.000', 'All In One ticket is a package ticket to experience unlimited outdoor/indoor/Sun Wheel games.... Does not include food, prize games, haunted houses, trams... Time of use: 15:00- 22:00. Note that service operating times may vary depending on season or weather.','image/ticket/ticket-kid2.jpg'),
     ('Family Ticket', '350.000', 'Ticket for family (3-4 person)','image/ticket/ticket-family.jpeg')";
+    
+    
+    $sql_add_fk = "ALTER TABLE `ticket-cart`ADD CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(id)";
+    if ($conn->query($sql_add_fk) === TRUE) {
+        echo "Column user_id added successfully and foreign key constraint added.<br>";
+    } else {
+        echo "Error adding foreign key constraint: " . $conn->error . "<br>";
+    } 
+    

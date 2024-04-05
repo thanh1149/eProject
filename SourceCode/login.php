@@ -1,17 +1,19 @@
 <?php
+session_start();
 require_once 'function.php';
 init_connection();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $name = $_POST["name"];
     $password = $_POST["password"];
-    $check_query = "SELECT * FROM users WHERE `name` = ? AND `password`=?";
+    $check_query = "SELECT id FROM users WHERE `name` = ? AND `password`=?";
     $check_stmt = $conn->prepare($check_query);
     $check_stmt->bind_param("ss", $name,$password);
     $check_stmt->execute();
     $result = $check_stmt->get_result();
     if($result->num_rows>0){
-        session_start();
+        $row = $result->fetch_assoc();
+        $_SESSION['id'] = $row['id'];
         $_SESSION['name'] = $name;
         echo '<script>alert("Login succesfull!");</script>';
         header("Location: buy-ticket.php");

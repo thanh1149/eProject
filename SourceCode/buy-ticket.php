@@ -1,24 +1,25 @@
 <?php
-require_once 'function.php';
 session_start();
+require_once 'function.php';
+init_connection();
 
-
-if (isset($_SESSION['name'])) {
-    init_connection();
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    $name = $_SESSION['name'];
+if (!isset($_SESSION['id']) || !isset($_SESSION['name'])) {
+    header("Location: login.php");
+    exit;
 }
+$id = $_SESSION['id'];
+$name = $_SESSION['name'];
+
 // cart
+
 if(isset($_POST["add"])){
-    $id = $_GET["id"];
+    $ticket_id = $_GET["id"];
     $ticket_name = $_POST["ticket_name"];
     $price = $_POST["ticket_price"];
     $quantity = $_POST["quantity"];
     $date = $_POST["datepicker"];
 
-    $sql = "INSERT INTO `ticket-cart`(`name`, `price`,`quantity`,`date`) VALUES ('$ticket_name','$price','$quantity','$date');";
+    $sql = "INSERT INTO `ticket-cart`(`name`, `price`,`quantity`,`date`,`user_id`) VALUES ('$ticket_name','$price','$quantity','$date','$id');";
     mysqli_query($conn, $sql);
     
 }
@@ -108,14 +109,9 @@ if(isset($_POST["add"])){
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-right">
                     <li class="nav-item">
                         <?php
-                        $query = "SELECT name FROM users WHERE `name` = '$name'";
-                        $result = mysqli_query($conn, $query);
-                        if ($result) {
-                            $row = mysqli_fetch_assoc($result);
-                            echo "Hello, " . $row['name'];
-                        } else {
-                            echo "Error: " . mysqli_error($conn);
-                        }
+                            if (isset($_SESSION['name'])) {
+                                echo "Hello, " . $_SESSION['name'];
+                            }
                         ?>
                     </li>
                     <li class="nav-item">
