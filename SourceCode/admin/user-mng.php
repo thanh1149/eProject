@@ -1,6 +1,14 @@
 <?php
+session_start();
 require_once __DIR__ . "/../function.php";
 init_connection();
+if (!isset($_SESSION['id']) || !isset($_SESSION['name'])) {
+    header("Location: admin-login.php");
+    exit;
+}
+$id = $_SESSION['id'];
+$name = $_SESSION['name'];
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
     $userId = $_POST['id'];
     $query = "DELETE FROM users WHERE id = $userId";
@@ -29,10 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
                 });
             }
         }
-        function logout() {
-            window.location.href = "admin-login.php";
-        }
-    
     </script>
 </head>
 <body>
@@ -40,14 +44,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
         <div class="container-fluid">
             <!-- Navbar brand -->
             <a class="navbar-brand" href="admin.php">
-                <?php
-                $query = "SELECT name FROM admin LIMIT 1";
-                $result = mysqli_query($conn, $query);
-                $row = mysqli_fetch_assoc($result);
-                echo "Hello, " . $row['name'];
+            <?php
+                    if (isset($_SESSION['name'])) {
+                        echo "Hello, " . $_SESSION['name'];
+                    }
                 ?>
             </a>
-            <button class="btn btn-link text-white" style="text-decoration: none" onclick="logout()">Exit</button>
+            <a class="nav-link log" href="admin-logout.php"><i class="fas fa-sign-in-alt"></i>Exit</a>
         </div>
     </nav>
     <!-- content -->

@@ -1,10 +1,14 @@
 <?php
+session_start();
 require_once __DIR__ . "/../function.php";
-// if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-//     header("location: admin-login.php"); // Chuyển hướng người dùng đến trang đăng nhập nếu chưa đăng nhập
-//     exit;
-// }
 init_connection();
+
+if (!isset($_SESSION['id']) || !isset($_SESSION['name'])) {
+    header("Location: admin-login.php");
+    exit;
+}
+$id = $_SESSION['id'];
+$name = $_SESSION['name'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,13 +30,12 @@ init_connection();
             <!-- Navbar brand -->
             <a class="navbar-brand" href="admin.php">
                 <?php
-                $query = "SELECT name FROM admin LIMIT 1";
-                $result = mysqli_query($conn, $query);
-                $row = mysqli_fetch_assoc($result);
-                echo "Hello, " . $row['name'];
+                    if (isset($_SESSION['name'])) {
+                        echo "Hello, " . $_SESSION['name'];
+                    }
                 ?>
             </a>
-            <button class="btn btn-link text-white" style="text-decoration: none" onclick="logout()">Exit</button>
+            <a class="nav-link log" href="admin-logout.php"><i class="fas fa-sign-in-alt"></i>Exit</a>
         </div>
     </nav>
     <!-- content -->
@@ -53,8 +56,8 @@ init_connection();
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-start">
             <div class="ms-2 me-auto">
-                <div class="fw-bold"><a href="#" class="subheading-link">Subheading</a></div>
-                Content for list item
+                <div class="fw-bold"><a href="ticket-mng.php" class="subheading-link">Ticket Management</a></div>
+                Search for user ticket infor
             </div>
             <span class="badge text-bg-primary rounded-pill">14</span>
         </li>

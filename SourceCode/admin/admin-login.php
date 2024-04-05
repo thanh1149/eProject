@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . "/../function.php";
 init_connection();
 
@@ -12,6 +13,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $check_stmt->execute();
     $result = $check_stmt->get_result();
     if($result->num_rows>0){
+        $row = $result->fetch_assoc();
+        $_SESSION['id'] = $row['id'];
+        $_SESSION['name'] = $name;
         echo '<script>alert("Login succesfull!");</script>';
         echo '<script>window.location.href = "admin.php";</script>';
         exit;
