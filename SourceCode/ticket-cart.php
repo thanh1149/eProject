@@ -30,24 +30,19 @@ if(isset($_GET["action"]) && $_GET["action"] == "delete"){
     <script>
         function logout() {
             $.ajax({
-                url: 'logout.php', // Đường dẫn đến file xử lý đăng xuất
-                type: 'POST', // Phương thức gửi yêu cầu
+                url: 'logout.php', 
+                type: 'POST',
                 success: function(response) {
-                    // Chuyển hướng về trang đăng nhập sau khi đăng xuất
                     window.location.href = "login.php";
                 }
             });
         }
 
-    $(document).ready(function() {
-        $('#proceedBtn').click(function() {
-            $('#confirmModal').modal('show');
-        });
-
-        $('#confirmBtn').click(function() {
-            window.location.href = "buy-ticket.php";
-        });
-    });
+    //     $(document).ready(function() {
+    //         $('#exampleModal').on('hidden.bs.modal', function () {
+    //     window.location.href = "buy-ticket.php"; 
+    //     });
+    // });
 
 
     </script>
@@ -171,13 +166,35 @@ if(isset($_GET["action"]) && $_GET["action"] == "delete"){
         <a href="buy-ticket.php" class="btn btn-primary">Ticket type</a>
         <a href="ticket-cart.php" class="btn btn-success">Ticket Cart</a>
     </div>
-                
+    
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" id="doneBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-bottom:10 px;">Done</button>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                The tickets will be paid for directly upon arrival at the park. Please purchase the tickets in the correct quantity and avoid placing multiple orders
+                </div>
+                <div class="modal-footer">
+                    <a href="buy-ticket.php">Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <?php include('./nav+footer/footer.php'); ?>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+    
+    
 </body>
 
 </html>

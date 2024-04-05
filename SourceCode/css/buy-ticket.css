@@ -223,3 +223,13 @@ tr:hover {
     color: #fff; 
 }
 
+#doneBtn {
+    display: block;
+    margin: 0 auto;
+}
+
+.modal-footer a {
+    text-decoration: none;
+    color: inherit;
+}
+
