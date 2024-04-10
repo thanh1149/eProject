@@ -81,19 +81,19 @@ if(isset($_GET["action"]) && $_GET["action"] == "delete"){
                         <a class="nav-link" href="home.php">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ABOUT US</a>
+                        <a class="nav-link" href="about-us.php">ABOUT US</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">EXPERIENCE</a>
+                        <a class="nav-link" href="experience.php">EXPERIENCE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">EVENT</a>
+                        <a class="nav-link" href="event.php">EVENT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ENTERTAINMENT</a>
+                        <a class="nav-link" href="entertainment.php">ENTERTAINMENT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">RESTAURANT</a>
+                        <a class="nav-link" href="restaurant.php">RESTAURANT</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -101,7 +101,7 @@ if(isset($_GET["action"]) && $_GET["action"] == "delete"){
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="map.php">MAP</a></li>
-                            <li><a class="dropdown-item" href="#">GALLERY</a></li>
+                            <li><a class="dropdown-item" href="gallery.php">GALLERY</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -165,11 +165,12 @@ if(isset($_GET["action"]) && $_GET["action"] == "delete"){
     <div class="text-center">
         <a href="buy-ticket.php" class="btn btn-primary">Ticket type</a>
         <a href="ticket-cart.php" class="btn btn-success">Ticket Cart</a>
-    </div>
-    
-    <div class="text-center">
         <button type="button" class="btn btn-primary" id="doneBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-bottom:10 px;">Done</button>
     </div>
+    
+    <!-- <div class="text-center">
+        <button type="button" class="btn btn-primary" id="doneBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-bottom:10 px;">Done</button>
+    </div> -->
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">

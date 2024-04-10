@@ -19,4 +19,34 @@ $sql_create_table = "CREATE TABLE IF NOT EXISTS ticket (
     } else {
         echo "Error adding foreign key constraint: " . $conn->error . "<br>";
     } 
-    
+
+$sql_create_table = "CREATE TABLE IF NOT EXISTS admin (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(150),
+        password VARCHAR(50),
+    )";
+
+$sql_create_table = "CREATE TABLE IF NOT EXISTS contact (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(100),
+        phone VARCHAR(20),
+        message TEXT,
+    )";
+
+$sql_create_table = "CREATE TABLE IF NOT EXISTS ticket-cart (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(100),
+        price VARCHAR(50),
+        quantity INT(11),
+        date datetime,
+        user_id INT,
+        FOREIGN KEY (user_id) REFERENCES users(id)
+    )";
+
+$sql_create_table = "CREATE TABLE IF NOT EXISTS users (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(100),
+        email VARCHAR(50),
+        phone VARCHAR(50),
+        password datetime,
+    )";

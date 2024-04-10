@@ -82,19 +82,19 @@ if(isset($_POST["add"])){
                         <a class="nav-link" href="home.php">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ABOUT US</a>
+                        <a class="nav-link" href="about-us.php">ABOUT US</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">EXPERIENCE</a>
+                        <a class="nav-link" href="experience.php">EXPERIENCE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">EVENT</a>
+                        <a class="nav-link" href="event.php">EVENT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ENTERTAINMENT</a>
+                        <a class="nav-link" href="entertainment.php">ENTERTAINMENT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">RESTAURANT</a>
+                        <a class="nav-link" href="restaurant.php">RESTAURANT</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -102,7 +102,7 @@ if(isset($_POST["add"])){
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="map.php">MAP</a></li>
-                            <li><a class="dropdown-item" href="#">GALLERY</a></li>
+                            <li><a class="dropdown-item" href="gallery.php">GALLERY</a></li>
                         </ul>
                     </li>
                 </ul>
