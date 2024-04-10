@@ -165,12 +165,11 @@ if(isset($_GET["action"]) && $_GET["action"] == "delete"){
     <div class="text-center">
         <a href="buy-ticket.php" class="btn btn-primary">Ticket type</a>
         <a href="ticket-cart.php" class="btn btn-success">Ticket Cart</a>
-        <button type="button" class="btn btn-primary" id="doneBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-bottom:10 px;">Done</button>
     </div>
     
-    <!-- <div class="text-center">
-        <button type="button" class="btn btn-primary" id="doneBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-bottom:10 px;">Done</button>
-    </div> -->
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" id="doneBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-bottom:5px;">Done</button>
+    </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
