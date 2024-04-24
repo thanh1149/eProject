@@ -70,10 +70,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 
                                 <div class="form-group">
                                     <label for="">Message:</label>
-                                    <input type="text" class="form-control" name="message" required style="height: 100px;">
+                                    <textarea name="" id="" cols="30" rows="10" style ="width : 100%;"> 
                                     <?php if (isset($error['message'])) : ?>
                                         <p class="text-danger"><?php echo ($error['message']); ?></p>
                                     <?php endif ?>
+                                    </textarea>
+                                    <!-- <input type="text" class="form-control" name="message" required style="height: 100px;"> -->
+                                    
+                                    
                                 </div>
                                 <button type="submit" class="btn btn-success" style="margin-top: 10px;">SEND</button> <br>
                                 
@@ -84,7 +88,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
         </div>
     </div>
-    
 
     <?php include('nav+footer/footer.php'); ?>
 
